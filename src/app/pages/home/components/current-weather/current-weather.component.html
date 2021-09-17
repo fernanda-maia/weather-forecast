@@ -1,0 +1,34 @@
+<div class="weather-card"
+     [style]="'background:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+                url('+ image + ');
+     background-size: cover; background-position: top;'">
+    <div class="card-header">
+
+        <div class="header-info">
+            <span class="weather-temp">{{ temperature }}</span>
+            <h3>{{ cityName }}</h3>
+        </div>
+        <div class="actions">
+            <mat-icon (click)="onToggleBookmark()">favorite_border</mat-icon>
+            <a routerLink="/details"><mat-icon >insights</mat-icon></a> 
+        </div>
+    </div>
+    
+    <div class="card-body">
+        <app-details-weather  icon="wind.png"
+                              infoType="wind"
+                              [info]="cityWeather!.weather.wind.speed + 'm/s'">
+        </app-details-weather>
+    
+        <app-details-weather  icon="feels.png"
+                              infoType="feels like"
+                              [info]="cityWeather!.weather.feelsLike + 'K'">
+        </app-details-weather>
+    
+        <app-details-weather  icon="humidity.png"
+                              infoType="humidity"
+                              [info]="cityWeather!.weather.humidity + '%'">
+        </app-details-weather>
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+<header class="header" 
+     style="background-image: url(assets/images/clock-bg.jpg)">
+     <span class="large-font">{{date | date: "HH:mm"}}</span>
+     <span>São Paulo</span>
+    <div class="search-container center">
+        <input [formControl]="searchControl"
+               type="text" 
+               class="search-input" 
+               placeholder="ex.: Rio de Janeiro">
+        <button mat-raised-button (click)="doSearch()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+</header>
+<nav></nav>
+
+<main class="center content">
+    <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
+        <app-current-weather [cityWeather]="cityWeather"
+                             (toggleBookmark)="onToggleBookmark()">
+        </app-current-weather>
+    </div>
+    <app-error *ngIf="!(loading$ | async) && (error$ | async)"></app-error>
+    <app-loader *ngIf="(loading$ | async)"></app-loader>
+</main>
