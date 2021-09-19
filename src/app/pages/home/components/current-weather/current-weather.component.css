@@ -3,8 +3,8 @@
     height: 17rem;
     max-width: 90vw;
     border-radius: 0.3rem;
-    -webkit-box-shadow: 0px 0px 20px 1px #0000005c; 
-    box-shadow: 0px 0px 20px 1px #0000005c;
+    -webkit-box-shadow: var(--card-shadow); 
+    box-shadow: var(--card-shadow)
 }
 
 .card-header, .card-body {
@@ -38,6 +38,7 @@
 
 .actions > .mat-icon {
     cursor: pointer;
+    color: #ff0000;
 }
 
 .weather-temp {

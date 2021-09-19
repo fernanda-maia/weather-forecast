@@ -1,0 +1,43 @@
+.content {
+    padding: 7rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 25rem));
+    gap: 4rem 7rem;
+    justify-content: center; 
+}
+
+.city-card {
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 0.4rem;
+    background-size: cover;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.3rem;
+    filter: grayscale(0.8);
+    text-shadow: 1px 2px 4px #00000078;
+    -webkit-box-shadow: var(--card-shadow); 
+    box-shadow: var(--card-shadow)
+}
+
+.city-card:hover {
+    filter: grayscale(0);
+}
+
+.material-icons-outlined {
+    transform: scale(1.2);
+}
+
+.city-card > .material-icons-outlined:hover {
+    color: #ff0000;
+}
+
+@media (max-width:634px) {
+    .content {
+        padding: 5rem 1.5rem;
+    }
+}

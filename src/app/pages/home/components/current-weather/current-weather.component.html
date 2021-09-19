@@ -9,7 +9,9 @@
             <h3>{{ cityName }}</h3>
         </div>
         <div class="actions">
-            <mat-icon (click)="onToggleBookmark()">favorite_border</mat-icon>
+            <mat-icon (click)="onToggleBookmark()">
+                {{isFavorite? "favorite" : "favorite_border"}}
+            </mat-icon>
             <a routerLink="/details"><mat-icon >insights</mat-icon></a> 
         </div>
     </div>

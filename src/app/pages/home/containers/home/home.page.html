@@ -1,22 +1,14 @@
-<header class="header" 
-     style="background-image: url(assets/images/clock-bg.jpg)">
-     <span class="large-font">{{date | date: "HH:mm"}}</span>
-     <span>São Paulo</span>
-    <div class="search-container center">
-        <input [formControl]="searchControl"
-               type="text" 
-               class="search-input" 
-               placeholder="ex.: Rio de Janeiro">
-        <button mat-raised-button (click)="doSearch()">
-            <mat-icon>search</mat-icon>
-        </button>
-    </div>
-</header>
-<nav></nav>
+<app-header title="São Paulo"
+            controlName="value"
+            [formGroup]="searchForm"
+            (callback)="doSearch()">
+
+</app-header>
 
 <main class="center content">
     <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
         <app-current-weather [cityWeather]="cityWeather"
+                             [isFavorite]="isFavorite$ | async"
                              (toggleBookmark)="onToggleBookmark()">
         </app-current-weather>
     </div>

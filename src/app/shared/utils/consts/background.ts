@@ -1,59 +1,30 @@
-export const getBg = (weather: string | undefined) => {
+export const getBg = (weather: string) => {
+    const icon = weather.toLowerCase();
 
-    let background = "";
-    switch(weather) {
-        case "01d": background = 'dclear.jpg';
-        break;
+    const files: {[key: string]: string} = {
+        "01d": 'dclear.jpg',
+        "01n": 'nclear.jpg',
+        "02d": 'dfclouds.jpg',
+        "02n": 'nfclouds.jpg',
+        "03d": 'dcloudy.jpg',
+        "03n": 'ncloudy.jpg',
+        "04d": 'dbcloudy.jpg',
+        "04n": 'nbcloudy.jpg',
+        "09d": 'dsrain.jpg',
+        "09n": 'nsrain.jpg',
+        "10d": 'drain.jpg',
+        "10n": 'nrain.jpg',
+        "11d": 'dstorm.jpg',
+        "11n": 'nstorm.jpg',
+        "13d": 'nrain.jpg',
+        "13n": 'nsnow.jpg',
+        "50d": 'mist.jpg',
+        "50n": 'mist.jpg',
+        "default": 'default.jpg'
+    } 
 
-        case "01n": background = 'nclear.jpg';
-        break;
+    const image = icon in files? 
+        files[icon] : files["default"];
 
-        case "02d": background = 'dfclouds.jpg';
-        break;
-
-        case "02n": background = 'nfclouds.jpg';
-        break;
-
-        case "03d": background = 'dcloudy.jpg';
-        break;
-
-        case "03n": background = 'ncloudy.jpg';
-        break;
-
-        case "04d": background = 'dbcloudy.jpg';
-        break;
-
-        case "04n": background = 'nbcloudy.jpg';
-        break;
-
-        case "09d": background = 'dsrain.jpg';
-        break;
-
-        case "09n": background = 'nsrain.jpg';
-        break;
-
-        case "10d": background = 'drain.jpg';
-        break;
-
-        case "10n": background = 'nrain.jpg';
-        break;
-
-        case "11d": background = 'dstorm.jpg';
-        break;
-
-        case "11n": background = 'nstorm.jpg';
-        break;
-
-        case "13d": background = 'nrain.jpg';
-        break;
-
-        case "13n": background = 'nsnow.jpg';
-        break;
-
-        default:
-            background = 'default.jpg';
-    }
-
-    return `assets/images/cards/${background}`;
-
-} 
+    return `assets/images/cards/${image}`;
+}
