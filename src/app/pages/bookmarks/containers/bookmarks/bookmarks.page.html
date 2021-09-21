@@ -4,41 +4,17 @@
             (callback)="doSearch()">
 </app-header>
 
-<main class="content">
-    <div class="city-card" [style]="'background-image: url(' + image('BR') + ');'">
-        <span class="material-icons-outlined">
+ <app-empty-state  *ngIf="!(bookmarks$ | async)?.length"></app-empty-state>
+
+<main class="content" >
+    <div class="city-card"
+         *ngFor="let bookmark of bookmarks$ | async"
+         routerLink="/details"
+         [style]="'background-image: url(' + image(bookmark.country) + ');'">
+        <span (click)="removeBookmark(bookmark.id)"
+               class="material-icons-outlined">
             bookmark_remove
         </span>
-        <h2>Rio de Janeiro - BR</h2>    
-    </div>
-    <div class="city-card" [style]="'background-image: url(' + image('GB') + ');'">
-        <span class="material-icons-outlined">
-            bookmark_remove
-        </span>
-        <h2>London - GB</h2>    
-    </div>
-    <div class="city-card" [style]="'background-image: url(' + image('US') + ');'">
-        <span class="material-icons-outlined">
-            bookmark_remove
-        </span>
-        <h2>New York - US</h2>    
-    </div>
-    <div class="city-card" [style]="'background-image: url(' + image('ZZ') + ');'">
-        <span class="material-icons-outlined">
-            bookmark_remove
-        </span>
-        <h2>Buenos Aires - AR</h2>    
-    </div>
-    <div class="city-card" [style]="'background-image: url(' + image('IN') + ');'">
-        <span class="material-icons-outlined">
-            bookmark_remove
-        </span>
-        <h2>Pune - IN</h2>    
-    </div>
-    <div class="city-card" [style]="'background-image: url(' + image('FR') + ');'">
-        <span class="material-icons-outlined">
-            bookmark_remove
-        </span>
-        <h2>Paris - FR</h2>    
+        <h2>{{bookmark.name}} - {{bookmark.country}}</h2>    
     </div>
 </main>

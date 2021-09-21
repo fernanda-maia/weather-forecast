@@ -7,6 +7,7 @@ import { DetailsWeatherComponent } from './details-weather/details-weather.compo
 import { HeaderLayout } from './header/header.layout';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmptyStateTemplate } from './empty-state/empty-state.template';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderLayout,
     ErrorTemplate,
     LoaderComponent,
-    DetailsWeatherComponent,
+    EmptyStateTemplate,
+    DetailsWeatherComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderLayout,
     ErrorTemplate,
     LoaderComponent,
+    EmptyStateTemplate,
     DetailsWeatherComponent
   ]
 })
