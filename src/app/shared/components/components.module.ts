@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { HeaderLayout } from './header/header.layout';
 import { ErrorTemplate } from './error/error.template';
 import { LoaderComponent } from './loader/loader.component';
-import { DetailsWeatherComponent } from './details-weather/details-weather.component';
-import { HeaderLayout } from './header/header.layout';
 import { MaterialModule } from '../material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
 import { EmptyStateTemplate } from './empty-state/empty-state.template';
+import { DetailsWeatherComponent } from './details-weather/details-weather.component';
+import { WeatherDetailsRowComponent } from './weather-details-row/weather-details-row.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { EmptyStateTemplate } from './empty-state/empty-state.template';
     ErrorTemplate,
     LoaderComponent,
     EmptyStateTemplate,
-    DetailsWeatherComponent
+    DetailsWeatherComponent,
+    WeatherDetailsRowComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { EmptyStateTemplate } from './empty-state/empty-state.template';
     ErrorTemplate,
     LoaderComponent,
     EmptyStateTemplate,
-    DetailsWeatherComponent
+    DetailsWeatherComponent,
+    WeatherDetailsRowComponent
   ]
 })
 export class ComponentsModule { }

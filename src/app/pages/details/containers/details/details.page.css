@@ -1,0 +1,17 @@
+main {
+    min-height: 100vh;
+}
+
+.list-weather {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 7rem;
+}
+
+@media (max-width:768px) {
+    .list-weather {
+        padding: 7rem 2rem;
+    }
+}

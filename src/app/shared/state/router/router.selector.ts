@@ -8,10 +8,10 @@ const selectRouterReducerState = createFeatureSelector<RouterReducerState<Router
 
 export const selectRouterState = createSelector(
     selectRouterReducerState,
-    (router: RouterReducerState<RouterState>) => router?.state || {}
+    (router: RouterReducerState<RouterState>) => router?.state ?? {}
 )
 
 export const selectRouterQueryParams = createSelector(
     selectRouterState,
-    (state: RouterState) => state?.queryParams || {}
+    (state: RouterState) => state?.queryParams ?? {}
 )

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import * as moment from 'moment-timezone';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +15,7 @@ export class AppComponent implements OnInit{
   constructor(private router: Router,
               private activeRoute: ActivatedRoute) {
         
+     moment.locale('en-US');
   }
 
   ngOnInit() {

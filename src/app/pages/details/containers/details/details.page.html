@@ -1,1 +1,18 @@
-<h1>HELLOOO</h1>
+<main class="center" 
+      *ngIf="(loading$ | async) || (error$ | async); else notLoading">
+
+    <app-loader *ngIf="loading$ | async"></app-loader>
+    <app-error *ngIf="error$ | async"></app-error>
+</main>
+
+<ng-template #notLoading>
+    <app-current-weather-details [current]="current"></app-current-weather-details>
+    <div class="list-weather">
+        <app-daily-weather-details *ngFor="let daily of (details$ | async)!.daily"
+                                   [dailyWeather]="daily"
+                                   [timeZone]="(details$ | async)?.city!.timeZone">
+            
+        </app-daily-weather-details>
+    </div>
+</ng-template>
+

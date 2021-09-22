@@ -12,25 +12,11 @@
             <mat-icon (click)="onToggleBookmark()">
                 {{isFavorite? "favorite" : "favorite_border"}}
             </mat-icon>
-            <a routerLink="/details"><mat-icon >insights</mat-icon></a> 
+            <a [routerLink]="['../details']"
+               [queryParams]="cityParams">
+               <mat-icon >insights</mat-icon></a> 
         </div>
     </div>
     
-    <div class="card-body">
-        <app-details-weather  icon="wind.png"
-                              infoType="wind"
-                              [info]="cityWeather!.weather.wind.speed + 'm/s'">
-        </app-details-weather>
-    
-        <app-details-weather  icon="feels.png"
-                              infoType="feels like"
-                              [info]="cityWeather!.weather.feelsLike + 'K'">
-        </app-details-weather>
-    
-        <app-details-weather  icon="humidity.png"
-                              infoType="humidity"
-                              [info]="cityWeather!.weather.humidity + '%'">
-        </app-details-weather>
-    </div>
-
+    <app-weather-details-row [cityWeather]="cityWeather!"></app-weather-details-row>
 </div>

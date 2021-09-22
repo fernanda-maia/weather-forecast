@@ -5,7 +5,7 @@ import * as fromDetailsActions from './details.actions';
 
 
 export interface DetailsState {
-    entity: CityDailyWeather | undefined;
+    entity?: CityDailyWeather;
     loading: boolean;
     error: boolean;
 }

@@ -19,16 +19,6 @@
     justify-content: space-between;
 }
 
-.card-body {
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    color: var(--body-font-color);
-    border-radius: 0 0 0.3rem 0.3rem;
-    background-color: var(--background-color);
-}
-
 .actions {
     height: 100%;
     display: flex;

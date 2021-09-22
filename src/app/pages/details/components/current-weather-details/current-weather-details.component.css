@@ -1,0 +1,43 @@
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100vw;
+    padding: 2rem 4rem;
+}
+
+.title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.title h1, .title h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    text-transform: capitalize;
+}
+
+.description img {
+    transform: translateY(10px);
+    width: 5.5rem;
+}
+
+@media (max-width:634px) {
+    .current-weather {
+        padding: 2rem 0 1rem;
+        text-align: center;
+    }
+    .title {
+        padding: 0 1rem;
+    }
+    .title h1, .title h2 {
+        font-size: 1.3rem;
+    }
+}

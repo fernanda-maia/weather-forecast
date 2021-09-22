@@ -19,6 +19,15 @@ export class CurrentWeatherComponent {
     return `${this.cityWeather?.city.name} - ${this.cityWeather?.city.country}`;
   }
 
+  get cityParams() {
+    const coord = this.cityWeather?.city.coord
+    
+    return {
+      lat: coord!.lat,
+      lon: coord!.lon
+    }
+  }
+
   get temperature(): string {
     return `${this.cityWeather?.weather.temp}K`;
   }

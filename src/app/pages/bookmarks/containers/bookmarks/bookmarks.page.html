@@ -9,7 +9,8 @@
 <main class="content" >
     <div class="city-card"
          *ngFor="let bookmark of bookmarks$ | async"
-         routerLink="/details"
+         [routerLink]="['../details']"
+         [queryParams]="{lat: bookmark.coord.lat, lon: bookmark.coord.lon}"
          [style]="'background-image: url(' + image(bookmark.country) + ');'">
         <span (click)="removeBookmark(bookmark.id)"
                class="material-icons-outlined">

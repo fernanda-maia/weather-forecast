@@ -1,0 +1,19 @@
+.card-body {
+    padding: 0.5rem;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--body-font-color);
+    border-radius: 0 0 0.3rem 0.3rem;
+    background-color: var(--background-color);
+}
+
+@media (max-width:634px) {
+    .card-body {
+        padding: 0.5rem 1.5rem;
+        overflow-x: auto;
+        gap: 3rem;
+        justify-content: flex-start;
+    }
+}
