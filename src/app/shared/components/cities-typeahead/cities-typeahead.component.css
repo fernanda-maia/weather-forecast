@@ -1,0 +1,76 @@
+.search-container {
+    min-width: fit-content;
+    border-radius: 0.4rem;
+    width: 45vw;
+    gap: 0.5rem;
+    padding: 1rem;
+    backdrop-filter: blur(5px);
+    background-color: #00000044
+}
+
+.search-container > .mat-raised-button {
+    border-radius: 0.2rem;
+    background-color: #ff4800;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--main-font-color);
+    
+}
+
+
+.search-container > .mat-raised-button:hover {
+    background-color: #d6511c;
+}
+
+.search-input {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    color: #111111;
+    background-color: #f0f0f0;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    caret-color: #111111;
+
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 3pt 2pt var(--light-blue-color);
+}
+
+::ng-deep .mat-autocomplete-panel {
+    transform: translateY(1rem);
+    background-color: #212121;
+}
+
+::ng-deep .mat-autocomplete-panel::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.6rem;
+}
+
+::ng-deep .mat-autocomplete-panel::-webkit-scrollbar-thumb{
+    background: #181818;
+    border-radius: 1rem;
+}
+
+::ng-deep .mat-autocomplete-panel::-webkit-scrollbar-track{
+    background: #313131;
+    border-radius: 0px;
+    box-shadow: inset 0px 0px 0px 0px #585858;
+    border-radius: 1rem;
+}
+
+.mat-option{
+    color: var(--main-font-color);
+}
+
+.mat-option:hover {
+    background-color: #212121c4;
+}
+
+@media (max-width:634px) {
+    .search-container {
+        width: 90vw;
+    }
+ 
+}

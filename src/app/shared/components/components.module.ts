@@ -8,6 +8,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { MaterialModule } from '../material/material.module';
 import { EmptyStateTemplate } from './empty-state/empty-state.template';
 import { DetailsWeatherComponent } from './details-weather/details-weather.component';
+import { CitiesTypeaheadComponent } from './cities-typeahead/cities-typeahead.component';
 import { WeatherDetailsRowComponent } from './weather-details-row/weather-details-row.component';
 
 
@@ -18,6 +19,7 @@ import { WeatherDetailsRowComponent } from './weather-details-row/weather-detail
     LoaderComponent,
     EmptyStateTemplate,
     DetailsWeatherComponent,
+    CitiesTypeaheadComponent,
     WeatherDetailsRowComponent,
   ],
   imports: [
@@ -31,6 +33,7 @@ import { WeatherDetailsRowComponent } from './weather-details-row/weather-detail
     LoaderComponent,
     EmptyStateTemplate,
     DetailsWeatherComponent,
+    CitiesTypeaheadComponent,
     WeatherDetailsRowComponent
   ]
 })

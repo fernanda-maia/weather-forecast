@@ -17,13 +17,13 @@
     <app-details-weather  *ngIf="moreInfo"
                           icon="sunrise.png"
                           infoType="sunrise"
-                          [info]="cityWeather!.weather.sunrise">
+                          [info]="unixToMinute(cityWeather!.weather.sunrise)">
     </app-details-weather>
 
     <app-details-weather  *ngIf="moreInfo"
                           icon="sunset.png"
                           infoType="sunset"
-                          [info]="cityWeather!.weather.sunset">
+                          [info]="unixToMinute(cityWeather!.weather.sunset)">
     </app-details-weather>
 
     <app-details-weather  *ngIf="moreInfo && cityWeather!.weather.maxTemp"

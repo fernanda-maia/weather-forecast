@@ -26,11 +26,11 @@
 
     <app-details-weather  icon="sunrise.png"
                           infoType="Sunrise hour"
-                          [info]="weather.sunrise">
+                          [info]="unixToMinute(weather.sunrise)">
     </app-details-weather>
 
     <app-details-weather  icon="sunset.png"
                           infoType="Sunset hour"
-                          [info]="weather.sunset">
+                          [info]="unixToMinute(weather.sunset)">
     </app-details-weather>
 </div>

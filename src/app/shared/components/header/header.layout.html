@@ -3,16 +3,9 @@
      <span class="large-font">{{date | date: "HH:mm"}}</span>
      <span>{{ title }}</span>
 
-    <div class="search-container center" [formGroup]="formGroup">
-        <input [formControlName]="controlName"
-               type="text" 
-               class="search-input" 
-               placeholder="ex.: Rio de Janeiro">
-
-        <button mat-raised-button (click)="doSearch()">
-            <mat-icon>search</mat-icon>
-        </button>
-    </div>
+    <app-cities-typeahead [formGroup]="formGroup"
+                          [controlName]="controlName"
+                          (search)="doSearch()"></app-cities-typeahead>
     
 </header>
 <nav></nav>

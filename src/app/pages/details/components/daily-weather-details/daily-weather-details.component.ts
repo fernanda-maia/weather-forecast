@@ -30,4 +30,8 @@ export class DailyWeatherDetailsComponent  {
     return moment.unix(this.dailyWeather.date).format('MMMM')
   }
 
+  unixToMinute(value: number): string {
+    return moment.unix(value).tz(this.timeZone!).format('HH:mm');
+  }
+
 }

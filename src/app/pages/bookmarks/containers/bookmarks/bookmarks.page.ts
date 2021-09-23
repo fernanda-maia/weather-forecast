@@ -1,5 +1,5 @@
 import { Store, select } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Observable } from 'rxjs';
@@ -18,10 +18,14 @@ import { getCityImage } from 'src/app/shared/utils/consts/city';
 export class BookmarksPage implements OnInit {
 
   bookmarks$: Observable<Bookmark[]>;
+  filteredBookmark: Bookmark[];
   searchForm: FormGroup;
+  searched: boolean;
 
   constructor(private store: Store,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder) { 
+      this.searched = false; 
+  }
 
   ngOnInit(): void {
     this.searchForm = this.formBuilder.group({
@@ -37,7 +41,16 @@ export class BookmarksPage implements OnInit {
 
   doSearch(): void {
     if(this.searchForm.valid) {
-      console.log(this.searchForm.getRawValue().value);
+      this.searched = true;
+      const query = this.searchForm.getRawValue().value;
+
+      this.bookmarks$.subscribe(
+        (b: Bookmark[]) => (
+          this.filteredBookmark = b.filter(i => i.name.toUpperCase().match(query.toUpperCase()))
+        )
+      )
+    } else {
+      this.searched = false;
     }
   }
 

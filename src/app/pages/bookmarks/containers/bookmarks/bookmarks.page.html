@@ -1,21 +1,27 @@
-<app-header title="favorites"
+<app-header title="Search your favorites"
             controlName="value"
             [formGroup]="searchForm"
             (callback)="doSearch()">
 </app-header>
 
- <app-empty-state  *ngIf="!(bookmarks$ | async)?.length"></app-empty-state>
+ <app-empty-state  *ngIf="!(bookmarks$ | async)?.length; else list"></app-empty-state>
 
-<main class="content" >
-    <div class="city-card"
-         *ngFor="let bookmark of bookmarks$ | async"
-         [routerLink]="['../details']"
-         [queryParams]="{lat: bookmark.coord.lat, lon: bookmark.coord.lon}"
-         [style]="'background-image: url(' + image(bookmark.country) + ');'">
-        <span (click)="removeBookmark(bookmark.id)"
-               class="material-icons-outlined">
-            bookmark_remove
-        </span>
-        <h2>{{bookmark.name}} - {{bookmark.country}}</h2>    
-    </div>
-</main>
+ <ng-template #list>
+     <main class="content" >
+         <div class="city-card"
+              *ngFor="let bookmark of (searched? filteredBookmark : bookmarks$ | async)"
+              [routerLink]="['../details']"
+              [queryParams]="{lat: bookmark.coord.lat, lon: bookmark.coord.lon}"
+              [style]="'background-image: url(' + image(bookmark.country) + ');'">
+             <span (click)="removeBookmark(bookmark.id)"
+                    class="material-icons-outlined">
+                 bookmark_remove
+             </span>
+             <h2>{{bookmark.name}} - {{bookmark.country}}</h2>    
+         </div>
+     </main>
+     
+     <div class="actions center" *ngIf="searched">
+         <button class="show-button">Show all</button>
+     </div>
+ </ng-template>
