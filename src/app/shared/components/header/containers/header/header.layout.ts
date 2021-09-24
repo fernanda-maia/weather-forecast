@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { ComponentPortal, DomPortalOutlet, PortalOutlet } from '@angular/cdk/portal';
+import { ComponentPortal, DomPortalOutlet, PortalInjector, PortalOutlet } from '@angular/cdk/portal';
 import { ApplicationRef, ComponentFactoryResolver, EventEmitter, Injector, OnDestroy } from '@angular/core';
 
 import { NavUnitSelectorComponent } from '../nav-unit-selector/nav-unit-selector.component';
@@ -46,7 +46,10 @@ export class HeaderLayout implements OnInit, OnDestroy {
   }
 
   private setupPortal(): void {
-    const element = document.querySelector('#navbar-portal-outlet');  
+    const element = document.querySelector('#navbar-portal-outlet');
+    const portal = new ComponentPortal(NavUnitSelectorComponent);
+
+    
     this.portalOutlet = new DomPortalOutlet(
       element!,
       this.componentFactoryResolver,
@@ -54,7 +57,9 @@ export class HeaderLayout implements OnInit, OnDestroy {
       this.injector
     );
 
-    this.portalOutlet.attach(new ComponentPortal(NavUnitSelectorComponent));
+    const componentRef = this.portalOutlet.attach(portal);
+    componentRef.instance.formGroup = this.formGroup;
  }
+
 
 }

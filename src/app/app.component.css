@@ -47,3 +47,9 @@
     height: 2rem;
     font-size: 1.8rem;
 }
+
+@media (max-width:634px) {
+    .navbar {
+        display: none;
+    }
+}

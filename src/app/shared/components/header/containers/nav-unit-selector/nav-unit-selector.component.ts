@@ -1,5 +1,5 @@
 import { select, Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { AppState } from 'src/app/shared/state/app.reducer';
 import * as fromHomeActions from 'src/app/pages/home/state/home.actions';
 import * as fromConfigActions from 'src/app/shared/state/config/config.actions';
 import * as fromConfigSelectors from 'src/app/shared/state/config/config.selectors'
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -17,6 +18,8 @@ import * as fromConfigSelectors from 'src/app/shared/state/config/config.selecto
   styleUrls: ['./nav-unit-selector.component.css']
 })
 export class NavUnitSelectorComponent implements OnInit {
+
+  @Input() formGroup: FormGroup;
 
   unitsEnum = Units;
   unit: string;
@@ -33,8 +36,11 @@ export class NavUnitSelectorComponent implements OnInit {
 
   updateUnit(value: string): void {
     this.store.dispatch(fromConfigActions.updateUnit({ unit: value }));
-    this.store.dispatch(fromHomeActions.clearHomeState());
+
+    if(this.formGroup.valid) {
+      const query = this.formGroup.getRawValue().value
+      this.store.dispatch(fromHomeActions.loadCurrentWeather({ query }));
+
+    }
   }
-
-
 }

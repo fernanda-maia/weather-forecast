@@ -4,27 +4,27 @@
             (callback)="doSearch()">
 </app-header>
 
-<div class="empty center">
-    <app-empty-state  *ngIf="!(bookmarks$ | async)?.length; else list"></app-empty-state>
+<div class="empty center"  *ngIf="!(bookmarks$ | async)?.length">
+    <app-empty-state ></app-empty-state>
 </div>
 
- <ng-template #list>
-     <main class="content" >
-         <div class="city-card"
-              *ngFor="let bookmark of (searched? filteredBookmark : bookmarks$ | async)"
-              [routerLink]="['../details']"
-              [queryParams]="{lat: bookmark.coord.lat, lon: bookmark.coord.lon}"
-              [style]="'background-image: url(' + image(bookmark.country) + ');'">
-             <span (click)="removeBookmark(bookmark.id)"
-                    class="material-icons-outlined">
-                 bookmark_remove
-             </span>
-             <h2>{{bookmark.name}} - {{bookmark.country}}</h2>    
-         </div>
-     </main>
+
+<main class="content" *ngIf="(bookmarks$ | async)?.length">
+    <div class="city-card"
+         *ngFor="let bookmark of (searched? filteredBookmark : bookmarks$ | async)"
+         [routerLink]="['../details']"
+         [queryParams]="{lat: bookmark.coord.lat, lon: bookmark.coord.lon}"
+         [style]="'background-image: url(' + image(bookmark.country) + ');'">
+        <span (click)="removeBookmark(bookmark.id)"
+               class="material-icons-outlined">
+            bookmark_remove
+        </span>
+        <h2>{{bookmark.name}} - {{bookmark.country}}</h2>    
+    </div>
+</main>
      
-     <div class="actions center" *ngIf="searched">
-         <button class="show-button">Show all</button>
-     </div>
- </ng-template>
+<div class="actions center" *ngIf="searched && (bookmarks$ | async)?.length">
+    <button (click)="showAll()" class="show-button">Show all</button>
+</div>
+ 
  <app-footer></app-footer>

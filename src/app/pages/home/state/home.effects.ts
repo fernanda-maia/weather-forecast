@@ -7,9 +7,6 @@ import { map ,catchError, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 
 import * as fromHomeActions from './home.actions';
-import * as fromUnitsActions from 'src/app/shared/state/config/config.actions';
-import * as fromHomeSelectors from './home.selectors'
-
 
 
 @Injectable()
@@ -25,12 +22,6 @@ export class HomeEffects {
             map((entity: any) => fromHomeActions.loadCurrentWeatherSuccess(entity))
         )
     );
-
-    // emptyList$ = createEffect(() => this.actions$
-    //     .pipe(
-    //         ofType(fromUnitsActions.updateUnit),
-    //         map(() => fromHomeActions.clearHomeState())
-    //     ))
 
     constructor(private actions$: Actions,
                 private store: Store,

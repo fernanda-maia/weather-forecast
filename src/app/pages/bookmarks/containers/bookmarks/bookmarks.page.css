@@ -1,8 +1,8 @@
 .content {
-    padding: 7rem 3rem 2rem;
+    padding: 7rem 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 25rem));
-    gap: 4rem 7rem;
+    gap: 4rem;
     justify-content: center; 
 }
 
@@ -42,7 +42,7 @@
 
 .actions {
     flex-direction: column;
-    padding: 0 2rem 1rem;
+    padding: 0 2rem 7rem;
     width: 100vw;
 }
 
