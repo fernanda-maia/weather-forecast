@@ -57,4 +57,8 @@ export class BookmarksPage implements OnInit {
   image(code: string): string {
     return getCityImage(code);
   }
+
+  showAll(): void {
+    this.searched = false;
+  }
 }

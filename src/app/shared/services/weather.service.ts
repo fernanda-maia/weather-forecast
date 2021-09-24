@@ -62,6 +62,7 @@ export class WeatherService implements OnDestroy{
                  .pipe(map((response) => responseToCityDailyWeather(response)));
   }
 
+
   private doGet<T>(url: string, params: HttpParams): Observable<T> {
       params = params.append('lang', 'en');
       params = params.append('appid', environment.apiKey);
