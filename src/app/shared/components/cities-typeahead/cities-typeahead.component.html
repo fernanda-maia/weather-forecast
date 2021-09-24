@@ -3,7 +3,7 @@
            type="text" 
            class="search-input" 
            matInput
-           *ngIf="autocomplete"
+           *ngIf="autocomplete && hasAutocomplete"
            (keydown.enter)="doSearch()"
            [matAutocomplete]="auto"
            placeholder="ex.: Rio de Janeiro">
@@ -11,12 +11,12 @@
     <input [formControlName]="controlName"
            type="text" 
            class="search-input" 
-           *ngIf="!autocomplete"
+           *ngIf="!autocomplete || !hasAutocomplete"
            (keydown.enter)="doSearch()"
            placeholder="ex.: Rio de Janeiro">
 
     <mat-autocomplete #auto="matAutocomplete" >
-        <mat-option *ngFor="let option of searchedItem" [value]="option">
+        <mat-option (click)="doSearch()" *ngFor="let option of searchedItem" [value]="option">
           {{option}}
         </mat-option>
     </mat-autocomplete>
@@ -26,6 +26,6 @@
     </button>
 
 </div>
-<mat-slide-toggle [checked]="autocomplete" (change)="toggleAutoComplete()">
+<mat-slide-toggle *ngIf="hasAutocomplete" [checked]="autocomplete" (change)="toggleAutoComplete()">
     Autocomplete {{autocomplete? 'On' : 'Off'}}
 </mat-slide-toggle>

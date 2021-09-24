@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { HeaderLayout } from './header/containers/header/header.layout';
+import { FooterLayout } from './footer/footer.layout';
 import { ErrorTemplate } from './error/error.template';
 import { LoaderComponent } from './loader/loader.component';
 import { MaterialModule } from '../material/material.module';
+import { HeaderLayout } from './header/containers/header/header.layout';
 import { EmptyStateTemplate } from './empty-state/empty-state.template';
 import { DetailsWeatherComponent } from './details-weather/details-weather.component';
 import { CitiesTypeaheadComponent } from './cities-typeahead/cities-typeahead.component';
@@ -16,6 +17,7 @@ import { NavUnitSelectorComponent } from './header/containers/nav-unit-selector/
 @NgModule({
   declarations: [
     HeaderLayout,
+    FooterLayout,
     ErrorTemplate,
     LoaderComponent,
     EmptyStateTemplate,
@@ -31,12 +33,13 @@ import { NavUnitSelectorComponent } from './header/containers/nav-unit-selector/
   ],
   exports: [
     HeaderLayout,
+    FooterLayout,
     ErrorTemplate,
     LoaderComponent,
     EmptyStateTemplate,
     DetailsWeatherComponent,
     CitiesTypeaheadComponent,
-    WeatherDetailsRowComponent
+    WeatherDetailsRowComponent,
   ]
 })
 export class ComponentsModule { }

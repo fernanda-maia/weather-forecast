@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { reducers } from './shared/state/app.reducer';
 import { environment } from '../environments/environment';
 import { CustomRouterSerializer } from './shared/state/router/router.reducer';
+import { FooterLayout } from './shared/components/footer/footer.layout';
 
 
 

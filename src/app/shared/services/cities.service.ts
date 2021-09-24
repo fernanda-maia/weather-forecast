@@ -18,10 +18,10 @@ export class CitiesService {
   getCities(query: string): Observable<CityTypeaheadItem[]> {
     let httpParams = new HttpParams();
     
-    httpParams = httpParams.set("name_like", query);
+    httpParams = httpParams.set("q", query);
     httpParams = httpParams.set("_page", "1");
-    httpParams = httpParams.set("_limit", "120");
-    httpParams = httpParams.set("_sort", "name");
+    httpParams = httpParams.set("_limit", "200");
+    httpParams = httpParams.set("_sort", "country");
 
     return this.httpClient.get<CityTypeaheadItem[]>(baseURL, {params: httpParams});
   }

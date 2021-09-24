@@ -4,7 +4,9 @@
             (callback)="doSearch()">
 </app-header>
 
- <app-empty-state  *ngIf="!(bookmarks$ | async)?.length; else list"></app-empty-state>
+<div class="empty center">
+    <app-empty-state  *ngIf="!(bookmarks$ | async)?.length; else list"></app-empty-state>
+</div>
 
  <ng-template #list>
      <main class="content" >
@@ -25,3 +27,4 @@
          <button class="show-button">Show all</button>
      </div>
  </ng-template>
+ <app-footer></app-footer>

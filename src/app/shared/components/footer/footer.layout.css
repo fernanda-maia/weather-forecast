@@ -1,0 +1,50 @@
+footer {
+    flex-direction: column;
+    gap: 1.4rem;
+    width: 100vw;
+    padding: 5rem 2rem 2rem;
+    background-color: var(--blue-hover-color);
+}
+
+.contact-navbar {
+    display: flex;
+    gap: 2rem;
+}
+
+.contact-navbar img {
+    width: 35px;
+}
+
+.about-navbar {
+    gap: 1rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    flex-direction: column;
+}
+
+p {
+    text-align: center;
+    width: 100vw;
+    padding-top: 3rem;
+}
+
+@media (min-width:768px) {
+    footer {
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    h4, .contact-navbar, .about-navbar {
+        margin-right: 1rem;
+    }
+
+    .contact-navbar, .about-navbar {
+        align-self: flex-end;
+        align-items: flex-start;
+        margin-bottom: 0;
+    }
+
+}

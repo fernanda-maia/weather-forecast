@@ -1,6 +1,7 @@
 <app-header title="Welcome to Windful"
             controlName="value"
             [formGroup]="searchForm"
+            [hasAutocomplete]="true"
             (callback)="doSearch()">
 </app-header>
 
@@ -14,4 +15,7 @@
     </div>
     <app-error *ngIf="!(loading$ | async) && (error$ | async)"></app-error>
     <app-loader *ngIf="(loading$ | async)"></app-loader>
+    <app-empty-state *ngIf="!(loading$ | async) && !(error$ | async) && !cityWeather"></app-empty-state>
 </main>
+
+<app-footer></app-footer>

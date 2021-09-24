@@ -5,7 +5,15 @@
 
     <app-cities-typeahead [formGroup]="formGroup"
                           [controlName]="controlName"
+                          [hasAutocomplete]="hasAutocomplete"
                           (search)="doSearch()"></app-cities-typeahead>
     
+     <span class="warn center">
+          <small> 
+               To the autocomplete works it's necessary start the JSON Server
+          </small>
+     </span>
 </header>
-<nav></nav>
+
+
+      

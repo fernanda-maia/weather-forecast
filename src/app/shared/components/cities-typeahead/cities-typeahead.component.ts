@@ -14,6 +14,7 @@ export class CitiesTypeaheadComponent implements OnInit, OnDestroy {
 
   @Input() formGroup: FormGroup;
   @Input() controlName: string;
+  @Input() hasAutocomplete: boolean = false;
   
   @Output() search = new EventEmitter();
   
@@ -34,7 +35,7 @@ export class CitiesTypeaheadComponent implements OnInit, OnDestroy {
               switchMap(s => this.service.getCities(s))
             )
           .subscribe(response => {
-            this.searchedItem = response.map(i => `${i.name}, ${i.country}`)
+            this.searchedItem = response.map(i => `${i.name}, ${i.subcountry}, ${i.country}`);
             return this.searchedItem;
           });
 

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Units } from 'src/app/shared/models/units.enum';
 import { AppState } from 'src/app/shared/state/app.reducer';
 
+import * as fromHomeActions from 'src/app/pages/home/state/home.actions';
 import * as fromConfigActions from 'src/app/shared/state/config/config.actions';
 import * as fromConfigSelectors from 'src/app/shared/state/config/config.selectors'
 
@@ -32,6 +33,7 @@ export class NavUnitSelectorComponent implements OnInit {
 
   updateUnit(value: string): void {
     this.store.dispatch(fromConfigActions.updateUnit({ unit: value }));
+    this.store.dispatch(fromHomeActions.clearHomeState());
   }
 
 

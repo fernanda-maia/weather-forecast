@@ -19,6 +19,7 @@ export class HeaderLayout implements OnInit, OnDestroy {
   @Input() title: string;
   @Input() controlName: string;
   @Input() formGroup: FormGroup;
+  @Input() hasAutocomplete = false;
 
   @Output() callback = new EventEmitter();
 
