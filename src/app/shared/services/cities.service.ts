@@ -20,7 +20,7 @@ export class CitiesService {
     
     httpParams = httpParams.set("name_like", query);
     httpParams = httpParams.set("_page", "1");
-    httpParams = httpParams.set("_limit", "50");
+    httpParams = httpParams.set("_limit", "120");
     httpParams = httpParams.set("_sort", "name");
 
     return this.httpClient.get<CityTypeaheadItem[]>(baseURL, {params: httpParams});

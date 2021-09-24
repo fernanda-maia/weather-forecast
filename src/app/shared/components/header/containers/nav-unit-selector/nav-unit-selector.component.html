@@ -1,0 +1,14 @@
+<div class="units-selector">
+    <span (click)="updateUnit(unitsEnum.Metric)" 
+           class="btn transform center"
+           [style]="unit === unitsEnum.Metric? 'border-color: #ecca04' : 'transparent'">C
+    </span>
+    <span (click)="updateUnit(unitsEnum.Imperial)" 
+           class="btn transform center"
+           [style]="unit === unitsEnum.Imperial? 'border-color: #ecca04' : 'transparent'">F
+    </span>
+    <span (click)="updateUnit(unitsEnum.SI)" 
+          class="btn center"
+          [style]="unit === unitsEnum.SI? 'border-color: #ecca04' : 'transparent'">K
+    </span>
+</div>

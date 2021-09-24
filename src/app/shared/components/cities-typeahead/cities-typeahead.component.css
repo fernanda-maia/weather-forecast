@@ -38,6 +38,13 @@
     box-shadow: 0 0 3pt 2pt var(--light-blue-color);
 }
 
+.mat-slide-toggle {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem;
+    width: 100%;
+}
+
 ::ng-deep .mat-autocomplete-panel {
     transform: translateY(1rem);
     background-color: #212121;

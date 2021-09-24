@@ -6,11 +6,14 @@
 </main>
 
 <ng-template #notLoading>
-    <app-current-weather-details [current]="current"></app-current-weather-details>
+    <app-current-weather-details 
+        [unit]="(unit$ | async)!"
+        [current]="current"></app-current-weather-details>
     <div class="list-weather">
         <app-daily-weather-details *ngFor="let daily of (details$ | async)!.daily"
                                    [dailyWeather]="daily"
-                                   [timeZone]="(details$ | async)?.city!.timeZone">
+                                   [timeZone]="(details$ | async)?.city!.timeZone"
+                                   [unit]="(unit$ | async)!">
             
         </app-daily-weather-details>
     </div>

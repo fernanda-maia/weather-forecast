@@ -23,7 +23,8 @@ export class AppComponent implements OnInit{
   }
 
   navigateByURL(url: string) {
-    this.isBookmark = !this.isBookmark;
+    this.isBookmark = !this.isBookmark
+
     this.router.navigateByUrl(url);
   }
 }

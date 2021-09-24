@@ -1,11 +1,14 @@
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 
-import { map ,catchError, mergeMap } from 'rxjs/operators';
+import { map ,catchError, mergeMap, withLatestFrom } from 'rxjs/operators';
+
+import { WeatherService } from 'src/app/shared/services/weather.service';
 
 import * as fromHomeActions from './home.actions';
-import { WeatherService } from 'src/app/shared/services/weather.service';
+import * as fromUnitsActions from 'src/app/shared/state/config/config.actions';
+import * as fromHomeSelectors from './home.selectors'
 
 
 
@@ -22,6 +25,12 @@ export class HomeEffects {
             map((entity: any) => fromHomeActions.loadCurrentWeatherSuccess(entity))
         )
     );
+
+    // emptyList$ = createEffect(() => this.actions$
+    //     .pipe(
+    //         ofType(fromUnitsActions.updateUnit),
+    //         map(() => fromHomeActions.clearHomeState())
+    //     ))
 
     constructor(private actions$: Actions,
                 private store: Store,

@@ -14,11 +14,12 @@ export class CitiesTypeaheadComponent implements OnInit, OnDestroy {
 
   @Input() formGroup: FormGroup;
   @Input() controlName: string;
-
+  
   @Output() search = new EventEmitter();
-
-  subscription: Subscription;
+  
   searchedItem: string[];
+  subscription: Subscription;
+  autocomplete: boolean = true;
 
   constructor(private service: CitiesService) {
     this.searchedItem = []
@@ -45,6 +46,10 @@ export class CitiesTypeaheadComponent implements OnInit, OnDestroy {
 
   doSearch(): void {
     this.search.emit();
+  }
+
+  toggleAutoComplete(): void {
+    this.autocomplete = !this.autocomplete;
   }
 
 }

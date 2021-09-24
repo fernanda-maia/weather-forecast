@@ -4,33 +4,35 @@
         <p>{{month}}</p>
         <img [src]="icon" alt="sky view" />
     </span>
-    <app-details-weather  icon="wind.png"
-                          infoType="wind speed"
-                          [info]="weather.wind.speed + 'm/s'">
-    </app-details-weather>
-
-    <app-details-weather  icon="humidity.png"
-                          infoType="humidity"
-                          [info]="weather.humidity + '%'">
-    </app-details-weather>
-
-    <app-details-weather  icon="min.png"
-                          infoType="Lowest Temperature"
-                          [info]="weather.minTemp + 'K'">
-    </app-details-weather>
-
-    <app-details-weather  icon="max.png"
-                          infoType="Higehst Temperature"
-                          [info]="weather.maxTemp + 'K'">
-    </app-details-weather>
-
-    <app-details-weather  icon="sunrise.png"
-                          infoType="Sunrise hour"
-                          [info]="unixToMinute(weather.sunrise)">
-    </app-details-weather>
-
-    <app-details-weather  icon="sunset.png"
-                          infoType="Sunset hour"
-                          [info]="unixToMinute(weather.sunset)">
-    </app-details-weather>
+    <div class="weather-row">
+        <app-details-weather  icon="wind.png"
+                              infoType="wind speed"
+                              [info]="weather.wind.speed + 'm/s'">
+        </app-details-weather>
+    
+        <app-details-weather  icon="humidity.png"
+                              infoType="humidity"
+                              [info]="weather.humidity + '%'">
+        </app-details-weather>
+    
+        <app-details-weather  icon="min.png"
+                              infoType="Lowest Temperature"
+                              [info]="getTemperature(weather.minTemp)">
+        </app-details-weather>
+    
+        <app-details-weather  icon="max.png"
+                              infoType="Higehst Temperature"
+                              [info]="getTemperature(weather.maxTemp)">
+        </app-details-weather>
+    
+        <app-details-weather  icon="sunrise.png"
+                              infoType="Sunrise hour"
+                              [info]="unixToMinute(weather.sunrise)">
+        </app-details-weather>
+    
+        <app-details-weather  icon="sunset.png"
+                              infoType="Sunset hour"
+                              [info]="unixToMinute(weather.sunset)">
+        </app-details-weather>
+    </div>
 </div>

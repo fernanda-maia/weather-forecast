@@ -11,5 +11,5 @@
         <img [src]="weatherIcon" alt="weather"/>
         <figcaption>{{this.current!.weather?.description ?? ''}}</figcaption>
     </figure>
-    <app-weather-details-row [moreInfo]="true" [cityWeather]="current"></app-weather-details-row>
+    <app-weather-details-row [unit]="unit" [moreInfo]="true" [cityWeather]="current"></app-weather-details-row>
 </div>

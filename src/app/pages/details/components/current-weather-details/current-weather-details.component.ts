@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { getBg } from 'src/app/shared/utils/consts/background';
 import { CityWeather } from 'src/app/shared/models/weather.model';
+import { unitToSymbol } from 'src/app/shared/utils/units.utils';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { CityWeather } from 'src/app/shared/models/weather.model';
 })
 export class CurrentWeatherDetailsComponent  {
   @Input() current: CityWeather;
+  @Input() unit: string;
   
   get getTitle(): string {
     return `${this.current?.city.name} - ${this.current?.city.country}`
@@ -28,7 +30,7 @@ export class CurrentWeatherDetailsComponent  {
   }
 
   get temperature(): string {
-    return `${this.current?.weather.temp}K`;
+    return `${this.current?.weather.temp.toFixed(1)} ${unitToSymbol(this.unit)}`;
   }
 
 }

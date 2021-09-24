@@ -1,7 +1,6 @@
 .daily-card {
     width: 100%;
     padding: 1rem;
-    height: 12rem;
     box-shadow: var(--card-shadow);
     background-color: var(--background-color);
     border-left: 1rem solid var(--light-blue-color);
@@ -38,9 +37,21 @@
 }
 
 
+.weather-row {
+    flex-grow: 0.5;
+    padding: 1rem;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--body-font-color);
+    border-radius: 0 0 0.3rem 0.3rem;
+    overflow-x: auto;
+}
+
 @media (max-width:1024px) {
     .daily-card {
-        height: fit-content;
+        width: 78vw;
         padding: 1.4rem;
     }
     .date {
@@ -52,6 +63,12 @@
     .date > img {
         top: 0;
         left: 0;
+    }
+
+    .weather-row {
+        padding-bottom: 2rem;
+        gap: 1rem;
+        justify-content: initial;
     }
 }
 

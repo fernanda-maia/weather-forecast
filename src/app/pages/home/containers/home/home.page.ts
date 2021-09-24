@@ -7,6 +7,7 @@ import { takeUntil, map } from 'rxjs/operators';
 
 import * as fromHomeActions from '../../state/home.actions';
 import * as fromHomeSelectors from '../../state/home.selectors';
+import * as fromUnitsSelectors from 'src/app/shared/state/config/config.selectors';
 import * as fromBookmarksSelectors from 'src/app/pages/bookmarks/state/bookmarks.selectors';
 
 import { Bookmark } from 'src/app/shared/models/bookmark.model';
@@ -22,15 +23,16 @@ export class HomePage implements OnInit, OnDestroy {
   private componentDestroyed$ = new Subject();
 
   searchForm: FormGroup;
-
   cityWeather: CityWeather;
+
+  unit$: Observable<string>;
   cityWeather$: Observable<CityWeather>;
+  bookmarkList$: Observable<Bookmark[]>;
 
   error$: Observable<boolean>;
   loading$: Observable<boolean>;
-
-  bookmarkList$: Observable<Bookmark[]>;
   isFavorite$: Observable<boolean>;
+
 
   constructor(private store: Store,
               private formBuilder: FormBuilder) {
@@ -58,8 +60,9 @@ export class HomePage implements OnInit, OnDestroy {
         map(([current, bookmarksList]) => {
           return !current? false : 
                   bookmarksList.some(b => b.id === current.city.id)
-        })
-      )
+        }))
+    
+    this.unit$ = this.store.pipe(select(fromUnitsSelectors.selectConfigUnit));
 
   }
 

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 
 import { getBg } from 'src/app/shared/utils/consts/background';
 import { CityWeather } from 'src/app/shared/models/weather.model';
+import { unitToSymbol } from 'src/app/shared/utils/units.utils';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { CityWeather } from 'src/app/shared/models/weather.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CurrentWeatherComponent {
+  @Input() unit: string;
   @Input() cityWeather: CityWeather | null;
   @Input() isFavorite: boolean | null;
   @Output() toggleBookmark = new EventEmitter();
@@ -29,7 +31,7 @@ export class CurrentWeatherComponent {
   }
 
   get temperature(): string {
-    return `${this.cityWeather?.weather.temp}K`;
+    return `${this.cityWeather?.weather.temp.toFixed(1)} ${unitToSymbol(this.unit)}`;
   }
 
   get image(): string {

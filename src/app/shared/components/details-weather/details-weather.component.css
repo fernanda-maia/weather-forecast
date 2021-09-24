@@ -1,13 +1,3 @@
-.weather-container {
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    color: var(--body-font-color);
-    border-radius: 0 0 0.3rem 0.3rem;
-    background-color: var(--background-color);
-}
-
 .weather-item {
     gap: 0.8rem;
     flex-direction: column;
@@ -15,6 +5,10 @@
 }
 
 .weather-item p{
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    width: 7rem;
+    background-color: rgba(199, 199, 199, 0.473);
     font-size: 1.1rem;
     font-weight: 400;
     opacity: 0.6;

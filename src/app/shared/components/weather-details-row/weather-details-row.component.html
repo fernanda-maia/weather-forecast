@@ -6,7 +6,7 @@
 
     <app-details-weather  icon="feels.png"
                           infoType="feels like"
-                          [info]="cityWeather!.weather.feelsLike + 'K'">
+                          [info]="getTemperature(cityWeather!.weather.feelsLike)">
     </app-details-weather>
 
     <app-details-weather  icon="humidity.png"
@@ -29,13 +29,13 @@
     <app-details-weather  *ngIf="moreInfo && cityWeather!.weather.maxTemp"
                           icon="max.png"
                           infoType="maxTemp"
-                          [info]="cityWeather!.weather.maxTemp">
+                          [info]="getTemperature(cityWeather!.weather.maxTemp)">
     </app-details-weather>
 
     <app-details-weather  *ngIf="moreInfo && cityWeather!.weather.minTemp"
                           icon="min.png"
                           infoType="minTemp"
-                          [info]="cityWeather!.weather.minTemp">
+                          [info]="getTemperature(cityWeather!.weather.minTemp)">
     </app-details-weather>
 
 </div>

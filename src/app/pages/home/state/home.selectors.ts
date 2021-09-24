@@ -1,8 +1,8 @@
-import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { HomeState } from './home.reducer';
 
 
-export const selectHomeState = createFeatureSelector('home') as MemoizedSelector<object, HomeState>;
+export const selectHomeState = createFeatureSelector<HomeState>('home');
 
 export const selectCurrentWeather = createSelector(
     selectHomeState,

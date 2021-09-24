@@ -9,6 +9,7 @@ import { CityDailyWeather, CityWeather } from 'src/app/shared/models/weather.mod
 
 import * as fromDetailsActions from '../../state/details.actions';
 import * as fromDetailsSelectors from '../../state/details.selectors';
+import * as fromUnitsSelectors from 'src/app/shared/state/config/config.selectors';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class DetailsPage implements OnInit, OnDestroy {
 
   current: CityWeather;
 
+  unit$: Observable<string>;
   error$: Observable<boolean>;
   loading$: Observable<boolean>;
   details$: Observable<CityDailyWeather | undefined>;
@@ -38,7 +40,9 @@ export class DetailsPage implements OnInit, OnDestroy {
                  .subscribe((value) => value? this.current = {
                    city: value!.city, weather: value!.current
                 } as CityWeather : undefined
-    ) 
+    )
+    
+    this.unit$ = this.store.pipe(select(fromUnitsSelectors.selectConfigUnit));
   }
 
   ngOnDestroy(): void {
