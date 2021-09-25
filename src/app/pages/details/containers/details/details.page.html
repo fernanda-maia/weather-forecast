@@ -1,11 +1,11 @@
 <main class="center" 
-      *ngIf="(loading$ | async) || (error$ | async); else notLoading">
+      *ngIf="(loading$ | async) || (error$ | async)">
 
     <app-loader *ngIf="loading$ | async"></app-loader>
     <app-error *ngIf="error$ | async"></app-error>
 </main>
 
-<ng-template #notLoading>
+<div class="container" *ngIf="!((loading$ | async) || (error$ | async))">
     <app-current-weather-details 
         [unit]="(unit$ | async)!"
         [current]="current"></app-current-weather-details>
@@ -17,5 +17,6 @@
             
         </app-daily-weather-details>
     </div>
-</ng-template>
+</div>
+
 

@@ -1,5 +1,5 @@
 import { select, Store } from '@ngrx/store';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostListener } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -23,6 +23,7 @@ export class NavUnitSelectorComponent implements OnInit {
 
   unitsEnum = Units;
   unit: string;
+  scrolled = 0;
 
   units$: Observable<string>;
 
@@ -43,4 +44,5 @@ export class NavUnitSelectorComponent implements OnInit {
 
     }
   }
+
 }

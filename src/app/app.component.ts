@@ -1,5 +1,5 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 import * as moment from 'moment-timezone';
 
@@ -12,9 +12,7 @@ export class AppComponent implements OnInit{
   isBookmark: boolean = true;
   title = 'weather-forecast';
 
-  constructor(private router: Router,
-              private activeRoute: ActivatedRoute) {
-        
+  constructor(private router: Router) {
      moment.locale('en-US');
   }
 
@@ -27,4 +25,6 @@ export class AppComponent implements OnInit{
 
     this.router.navigateByUrl(url);
   }
+
 }
+
