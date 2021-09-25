@@ -33,3 +33,10 @@
 .btn:hover {
     opacity: 0.6;
 }
+
+@media (max-width:634px) {
+    .units-selector {
+        justify-content: center;
+        
+    }
+}

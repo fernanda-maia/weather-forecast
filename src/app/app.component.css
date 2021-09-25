@@ -6,6 +6,7 @@
     padding: 1rem 2rem;
     background-color: transparent;
 }
+
 .main-content {
     display: flex;
     align-items: center;
@@ -50,6 +51,20 @@
 
 @media (max-width:634px) {
     .navbar {
-        display: none;
+        top: auto;
+        bottom: 0;
+    }
+
+    .float-button {
+        padding: 0.5rem;
+        width: 10.3rem;
+    }
+
+    .float-button:hover {
+        left: -7.6rem;
+    }
+
+    .float-button >.mat-icon {
+        font-size: 2rem;
     }
 }
